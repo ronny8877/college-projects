@@ -1,0 +1,50 @@
+<!-- WAP in HTML to create a web page to show various confectionary items using ordered and unordered list -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List</title>
+
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container m-auto text-center bg-gray-100">
+        <h1 class="text-4xl m-3">Unordered List</h1>
+        <ul class="list-disc flex flex-wrap flex-row gap-5" id="unorder"> </ul>
+        <hr />
+        <h1 class="text-4xl m-3">Ordered List</h1>
+        <ol class="list-decimal flex flex-wrap flex-row gap-5" id="ordered">
+            </ul>
+            <hr />
+    </div>
+</body>
+<script>
+    var names = ["Cake", "Cookie", "Cupcake", "Donut", "Eclair", "Fruitcake", "Gingerbread", "Ice Cream", "Jelly",
+        "Lollipop", "Marshmallow", "Nougat", "Oreo", "Pie", "Pudding", "Tart", "Wafer", "Waffle"
+    ];
+    //a function that return a list item with random name
+    function getRandomName() {
+        var randomName = names[Math.floor(Math.random() * names.length)];
+        return randomName;
+    }
+    //a function to create a custom element
+    function CustomElement(id, ele) {
+        for (let i = 0; i < names.length; i++) {
+            let listItem = document.createElement(ele && "li")
+            listItem.innerHTML = getRandomName();
+            listItem.classList.add("bg-red-500", "w-64", "h-48", "rounded-lg", "shadow-lg", "m-auto", "mt-5", "p-2",
+                "text-center", "font-bold", "text-xl");
+            document.getElementById(id).appendChild(listItem);
+        }
+    }
+    CustomElement("unorder", "li");
+    CustomElement("ordered", "li");
+</script>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@300&display=swap" />
+</head>
+
+<body class="bg-gray-200">
+    <header class=" container bg-black text-white m-auto rounded-bl-2xl rounded-br-2xl p-3 ">
+        <div class="flex flex-wrap flex-row gap-16 ">
+            <div class=" rounded-2xl text-center  w-full  md:w-auto  shadow-2xl py-5 px-16 ">
+                <p style="font-family: 'Poppins', sans-serif;" class="text-4xl font-bold "> Form</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-md container m-auto mt-16 ">
+        <div class="bg-red-500 w-full h-full p-3 transform   rounded-lg relative ">
+
+
+            <div class="bg-white h-full w-full p-5 rounded-xl p-5 transform  shadow-lg ">
+
+                <form class="flex flex-wrap flex-col gap-5  ">
+
+                    <div>
+                        <label for="name" class="font-extralight text-color-gray-200">
+                            Name
+                        </label>
+
+                        <input id="name" name="name" type="text" required maxLength=500
+                            class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md   focus:z-10 sm:text-sm"
+                            placeholder="Username" />
+                    </div>
+
+
+                    <div>
+                        <label for="email" class="font-extralight text-color-gray-200">
+                            Email
+                        </label>
+
+                        <input id="email" name="email" type="email" required
+                            class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md   focus:z-10 sm:text-sm"
+                            placeholder="Email" />
+                    </div>
+
+
+
+
+                    <div>
+                        <label for="password" class="font-extralight text-color-gray-200">
+                            Password
+                        </label>
+
+                        <input id="password" name="password" type="password" required
+                            class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md   focus:z-10 sm:text-sm"
+                            placeholder="Password" />
+                    </div>
+
+
+
+
+                    <div>
+                        <label for="tel" class="font-extralight text-color-gray-200">
+                            Phone
+                        </label>
+
+                        <input id="tel" name="tel" type="tel" required
+                            class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md   focus:z-10 sm:text-sm"
+                            placeholder="ie 7088292032" />
+                    </div>
+
+
+
+
+                    <div>
+                        <label for="date" class="font-extralight text-color-gray-200">
+                            AGE
+                        </label>
+
+                        <input id="date" name="date" type="date" required
+                            class="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md   focus:z-10 sm:text-sm"
+                            placeholder="ie 7088292032" />
+                    </div>
+
+
+                    <div class="shadow-lg p-5 bg-yellow-500 rounded-lg">
+                        <label for="gender" class="font-extralight text-color-gray-200">
+                            Gender
+                        </label>
+
+                        <br />
+                        <span>Male</span>
+
+                        <input id="gender " name="gender" type="radio" placeholder="Male" />
+                        <span>Female</span>
+
+                        <input id="gender " name="gender" type="radio" placeholder="female" />
+                    </div>
+
+
+                    <div>
+                        <label for="file" class="font-extralight text-color-gray-200">
+                            Image
+                        </label>
+                        <i id="picture" class="far fa-images fa-5x"> </i>
+                        <input id="file" name="file" type="file" required class="hidden aria-hidden "
+                            placeholder="ie 7088292032" />
+                    </div>
+
+
+
+                </form>
+            </div>
+    </main>
+    </div>
+</body>
+<script>
+    document.getElementById("picture").addEventListener("click", () => document.getElementById("file").click())
+</script>
+
+
+</html>
