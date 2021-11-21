@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <title> Calculator </title>
+</head>
+
+<body>
+    <div class="container min-h-screen m-auto grid shadow-lg place-items-center">
+        <div style="max-height: 60vh; overflow: hidden;" class="max-w-lg rounded-2xl shadow-lg   h-auto  ">
+            <input type="text" id="result"
+                class="text-2xl font-mono w-full h-10 overflow-hidden p-2 text-center bg-gray-200 border-2 border-gray-200"
+                readonly>
+            <div class="grid grid-cols-2 p-2">
+
+                <div class="grid grid-cols-3 max-w-sm" id="calculator"></div>
+                <div class="flex flex-wrap gap-3" id="operands">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+<script>
+    let ele = document.getElementById('calculator');
+    let result = document.getElementById('result');
+    let operands = document.getElementById('operands');
+    //a loop to create 10 buttons of calculator
+    for (let i = 0; i < 10; i++) {
+        CustomElement("calculator", "div", i)
+    }
+
+    //Creating operands
+    CustomElement("operands", "div", "C")
+    CustomElement("operands", "div", "Del")
+    CustomElement("operands", "div", "+")
+    CustomElement("operands", "div", "-")
+    CustomElement("operands", "div", "*")
+    CustomElement("operands", "div", "/")
+    CustomElement("operands", "div", "%")
+    CustomElement("operands", "div", "=")
+    //a function to create a custom element
+
+
+
+    function CustomElement(id, ele, inner) {
+        let listItem = document.createElement(ele)
+        listItem.innerHTML = inner;
+        listItem.id = inner;
+        listItem.classList.add("bg-red-500", "cursor-pointer", "w-12", "h-12", "sm:w-20", "sm:h-20", "text-center",
+            "rounded-lg", "shadow-lg", "m-auto", "mt-5",
+            "p-2",
+            "text-center", "font-bold", "text-xl");
+        document.getElementById(id).appendChild(listItem);
+
+    }
+
+
+    handelClick = (event) => {
+        //if user clicked on calculator return
+        if (event.target.id === "calculator") return
+        //limiting user input to 28 characters 
+        if (result.value.length > 28) return result.value = result.value.slice(0, -1);
+        result.value = result.value + event.target.innerHTML;
+
+        console.log(event.target.innerHTML);
+
+
+    }
+
+    //handel click on operands
+    handelClickOperands = (event) => {
+        //if user clicked on calculator return
+        if (event.target.id === "operands") return
+
+        //if operand is = then perform the calculation
+        if (event.target.innerHTML === "=") {
+            try {
+
+                result.value = eval(result.value);
+            } catch (e) {
+                alert(e)
+            }
+            return
+        }
+        //if operands is c then clearing the result.value
+        if (event.target.innerHTML === "C") return result.value = "";
+
+        //if operands is del then delete the last character
+        if (event.target.innerHTML === "Del") return result.value = result.value.slice(0, -1);
+
+        //not letting the user to enter  * / % at the beginning of the result.value
+        if (result.value.length === 0 && (event.target.innerHTML === "*" || event.target.innerHTML === "/" || event
+                .target.innerHTML === "%")) return
+
+        // returning user if last operands is similar to current input operands
+        if (result.value.slice(-1) === event.target.innerHTML) return
+
+        //not letting the user to enter  * / % + - one after another 
+        if (result.value.slice(-1) === "*" || result.value.slice(-1) === "/" || result.value.slice(-1) === "%" ||
+            result.value.slice(-1) === "+" || result.value.slice(-1) === "-") return
+
+
+        result.value = result.value + event.target.innerHTML;
+
+    }
+    2
+
+
+    //Listeners for calculator
+    ele.addEventListener("click", handelClick)
+    operands.addEventListener("click", handelClickOperands)
+</script>
+
+</html>

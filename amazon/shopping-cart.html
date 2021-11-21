@@ -4,10 +4,11 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home Page</title>
+        <title>Cart</title>
 <link rel="stylesheet" href="./css/home.css"/><!-- Path: college-projects\amazon\home-page.html -->
     </head>
     <body >
+
   <div id='navBar'>
   <div id='topHalf'>
     <div id='logoWrapper'>
@@ -26,12 +27,15 @@
       <a href="./registration-form.html" class="section">Register</a>
       <a   href="./profile.html" class="section">Account</a>
       <div class="section">Lists</div>
-      <a href="./shopping-cart.html" class="section">Cart</a>
+      <div class="section">Cart</div>
     </div>
   </link>
 </div>
   <!-- End of navbar -->
+<center>
 
+    <h3>Items on cart</h3>
+</center>
 <div class="main flex">
 
    
@@ -49,6 +53,8 @@
         .then(data => {
         let books = data.books;
         let output = '';
+        //reducing items to half
+        books = books.slice(0,books.length/2);
         books.forEach(book => {
             output += `
             <div class="card">
@@ -56,8 +62,8 @@
             <div class="card-content">
             <p class="card-title">${book.title}</p>
             <p class="card-price">${book.price}</p>
-            <button class="add-to-cart"> Add to cart</button>
-            <button class="buy-now"> Buy Now</button>
+            <button class="buy-now"> Proceed to pay</button>
+           
             </div>
             </div>
             `;
