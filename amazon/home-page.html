@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+<link rel="stylesheet" href="./css/home.css"/><!-- Path: college-projects\amazon\home-page.html -->
+    </head>
+    <body >
+  <div id='navBar'>
+  <div id='topHalf'>
+    <div id='logoWrapper'>
+    <img id='logo' src="http://www.userlogos.org/files/logos/ArkAngel06/Amazon.png" />
+    </div>
+    <input type="text" placeholder="Give me all your money" />
+    <img id='backToSchool' src="http://blog.neurogistics.com/wp-content/uploads/2014/08/Back-To-School-Special-Banner.jpg" alt="" />
+  </div>
+  <nav id='bottomHalf'>
+    <div id='department'>Departments</div>
+    <div id='sections'>
+      <div class="section">Your Amazon.com</div>
+      <div class="section">Today's Deals</div>
+      <div class="section">Gift Cards & Registry</div>
+      <div class="section">Sell</div>
+      <div class="section">Help</div>
+    </div>
+    <div id='accountStuff'>
+      <a href="./registration-form.html" class="section">Your Account</a>
+      <div class="section">Try Prime</div>
+      <div class="section">Lists</div>
+      <div class="section">Cart</div>
+    </div>
+  </link>
+</div>
+  <!-- End of navbar -->
+
+<div class="main flex">
+
+   
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript">
+//an array of books
+  const api ="https://api.itbook.store/1.0/";
+  //fetching new list of books
+    function getBooks(){
+        fetch(api+"new")
+        .then(response => response.json())
+        .then(data => {
+        let books = data.books;
+        let output = '';
+        books.forEach(book => {
+            output += `
+            <div class="card">
+            <img class="card-image" src="${book.image}"> </img>
+            <div class="card-content">
+            <p class="card-title">${book.title}</p>
+            <p class="card-price">${book.price}</p>
+            <button class="add-to-cart"> Add to cart</button>
+            <button class="buy-now"> Buy Now</button>
+            </div>
+            </div>
+            `;
+        });
+        document.querySelector('.main').innerHTML = output;
+        });
+    }
+
+
+
+
+getBooks();
+</script>
+
+
+</html>

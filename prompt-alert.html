@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a program to demonstrate Prompt Box, Confirmation Box and Alert Box..
+</title>
+</head>
+<style type="text/css" >
+
+ .btn   {
+  background-color:#FFC107;
+    color:white;   
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+    border-radius:5px; 
+}
+</style>
+<body>
+    <center><h4>Write a program to demonstrate Prompt Box, Confirmation Box and Alert Box</center>
+        <center>
+
+            <button type="button" onclick="showPromptBox();" class="btn">Prompt Box</button>
+            <button type="button" onclick="showAlert()" class="btn">Show Alert</button>
+            <button type="button" onclick="showConfirmation()" class="btn">Confirmation Box</button>
+        </center>
+</body>
+<script type="text/javascript">
+    showPromptBox=()=> prompt("Enter your name");
+showAlert=()=>alert("Displaying Alert");
+showConfirmation=()=>confirm("Do you want to continue?");
+</script>
+</html>
